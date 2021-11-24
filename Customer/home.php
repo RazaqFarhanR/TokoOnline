@@ -60,7 +60,7 @@
 
                 <div class="card-body">
                 <p class="card-text"><?=$data_produk['nama_produk']?></p>
-                <p class="card-text"><b>RP. <?=$data_produk['harga']?></b></p>
+                <p class="card-text"><?="Rp".number_format($data_produk['harga'])." ,";?></b></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                     <a href="lihat_produk.php?id_produk=<?=$data_produk['id_produk']?>" type="button" class="btn btn-sm btn-outline-secondary">Lihat</a>

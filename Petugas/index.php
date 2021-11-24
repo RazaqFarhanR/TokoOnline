@@ -37,7 +37,7 @@
     <form action="proses_login.php" method="POST">
     <h1>HunterShop</h1>
     <br>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">Petugas</h1>
 
     <div class="form-floating">
       <input type="username" class="form-control" id="floatingInput" name="username" placeholder="insert username" required>
@@ -48,7 +48,7 @@
       <label for="floatingPassword">Password</label>
     </div>
     <a class="nav-link" href="tambah_petugas.php">Tambah Petugas</a>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-danger" type="submit">Sign in</button>
     </form>
     </main>
 </body>

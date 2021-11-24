@@ -11,17 +11,7 @@
 </head>
 <body>
     <?php
-        include "navbar.php";
-
-        $total = 0;
-        $subtotal = 0;
-                 
-        // while ($r = @$_SESSION['cart']->fetch_assoc()){
-        //     //total adalah hasil dari harga x jumlah
-        //     $total = $r['harga'] * $r['qty'];
-        //     //subtotal adalah penjumlahan dari keseluruh total
-        //     $subtotal += $total;
-        // }     
+        include "navbar.php";    
     ?>
     <br></br>
     <div class="container">
@@ -47,18 +37,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach (@$_SESSION['cart'] as $key => $value) : ?>
+                    <?php 
+                    foreach (@$_SESSION['cart'] as $key => $value) : ?>
                     <tr>
                         <td><?=($key+1)?></td>
                         <td><?=$value['nama_produk']?></td>
                         <td><?=$value['qty']?></td>
-                        <td><?="Rp.".number_format($value['harga'])." ,";?></td>
+                        <td><?="Rp".number_format($value['harga'])." ,";?></td>
                         <td><a href="hapus_keranjang.php?id=<?=$key?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin menghapus data ini?')">Hapus</a></td>
                     </tr>
                     <?php endforeach;?>
                 </tbody>
             </table>
-            <a>Subtotal :<br><?="Rp.".number_format($subtotal)." ,";?></a>
             <a href="checkout.php" type="button" class="btn btn-success" style="float: right">checkout</a>
             <?php } ?>
             </div>

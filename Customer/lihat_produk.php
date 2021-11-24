@@ -37,7 +37,7 @@
                             <td colspan="2"><?=$data_produk['nama_produk']?></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><b>Rp<?=$data_produk['harga']?></b></td>
+                            <td colspan="2"><?="Rp".number_format($data_produk['harga'])?></b></td>
                         </tr>
                         <tr>
                             <td class="text-center" colspan="2"><b>Deskripsi</b></td>

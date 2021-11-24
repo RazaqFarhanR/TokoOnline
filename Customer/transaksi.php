@@ -25,10 +25,11 @@
                     <tr>
                     <th scope="col">No</th>
                     <th scope="col">TANGGAL TRANSAKSI</th>
-                    <th scope="col">SUB TOTAL</th>
                     <th scope="col">NAMA BARANG</th>
+                    <th scope="col">JUMLAH</th>
+                    <th scope="col">HARGA</th>
+                    <th scope="col">SUBTOTAL</th>
                     <th scope="col">STATUS</th>
-                    <th scope="col">AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,34 +57,45 @@
                             </ol>
                         </td>
                         <td>
-                            <ol>
+                            <ul>
                             <?php
+                            include "koneksi.php";
                             $query_detail = mysqli_query($koneksi, "SELECT * FROM detail_transaksi d
                                             JOIN produk p ON p.id_produk = d.id_produk WHERE
                                             id_transaksi = '".$data_transaksi['id_transaksi']."'");
                             while($data_detail = mysqli_fetch_array($query_detail)){
-                                echo "<li>".$data_detail['harga']."</li>";
+                                echo "<li>".$data_detail['qty']."</li>";
                             }
                             ?>
-                            </ol>
+                            </ul>
+                        </td>
+                        <td>
+                            <?php
+                            include "koneksi.php";
+                            $query_detail = mysqli_query($koneksi, "SELECT * FROM detail_transaksi d
+                                            JOIN produk p ON p.id_produk = d.id_produk WHERE
+                                            id_transaksi = '".$data_transaksi['id_transaksi']."'");
+                            while($data_detail = mysqli_fetch_array($query_detail)){
+                                echo "<label>Rp".number_format($data_detail['subtotal']/$data_detail['qty'])."<label>";
+                            }
+                            ?>
+                        </td>
+                        <td>
+                        <?php
+                            include "koneksi.php";
+                            $query_bayar = mysqli_query($koneksi, "SELECT SUM(subtotal) AS total FROM detail_transaksi
+                            WHERE id_transaksi = '".$data_transaksi['id_transaksi']."'");
+                            $data_bayar = mysqli_fetch_array($query_bayar);
+                            echo "<label>Rp.".number_format($data_bayar['total'])."</label>";
+                            ?>
                         </td>
                         <?php
-                        $query_cek_terima = mysqli_query($koneksi, "SELECT * FROM transaksi
-                        WHERE id_transaksi = '".$data_transaksi['id_transaksi']."'");
-                        if (mysqli_num_rows($query_cek_terima) > 0) {
-                            $data_terima = mysqli_fetch_array($query_cek_terima);
-                            echo "<td>";
-                            echo "<label class='alert alert-success'>
-                                Sudah diterima<br></label>";
-                            echo "</td>";
-                            echo "<td></td>";
-                        }
-                        else{
-                            echo "<td><label class='alert alert-danger'>Belum diterima<br></label></td>";
-                            echo "<td><a href='kembali.php?id=".$data_transaksi['id_transaksi']."' class='btn btn-warning'
-                            onclick='return confirm('Apakah anda yakin sudah menerima barang Anda?')'>Sudah</a></td>";
-                        }
-                        ?>
+                            include "koneksi.php";
+                            echo "<td><label class='alert alert-success'>Telah Berhasil<br></label></td>";
+                            ?>
+                            
+                        </td>                        
+
                     </tr>
                     <?php } ?>
                 </tbody>
