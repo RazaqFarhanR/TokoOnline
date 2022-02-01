@@ -35,7 +35,7 @@
                     <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
         </div>
-      <li class="navbar-nav mb-2 mb-lg-0 nav-item dropdown">
+        <li class="navbar-nav mb-2 mb-lg-0 nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
             <?php echo $_SESSION['nama'];?>
           </a>

@@ -34,22 +34,21 @@
 </head>
 <body class="text-center">
     <main class="form-signin">
-    <form action="proses_login.php" method="POST">
-    <h1>HunterShop</h1>
-    <br>
-    <h1 class="h3 mb-3 fw-normal">Petugas</h1>
-
-    <div class="form-floating">
-      <input type="username" class="form-control" id="floatingInput" name="username" placeholder="insert username" required>
-      <label for="floatingInput">Username</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
-      <label for="floatingPassword">Password</label>
-    </div>
-    <a class="nav-link" href="tambah_petugas.php">Tambah Petugas</a>
-    <button class="w-100 btn btn-lg btn-danger" type="submit">Sign in</button>
-    </form>
+      <form action="proses_login.php" method="POST">
+        <h1>HunterShop</h1>
+        <br>
+        <h1 class="h3 mb-3 fw-normal">Petugas</h1>
+        <div class="form-floating">
+          <input type="username" class="form-control" id="floatingInput" name="username" placeholder="insert username" required>
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <a class="nav-link" href="tambah_petugas.php">Tambah Petugas</a>
+        <button class="w-100 btn btn-lg btn-danger" type="submit">Sign in</button>
+      </form>
     </main>
 </body>
 </html>

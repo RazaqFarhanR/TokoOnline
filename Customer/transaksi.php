@@ -76,7 +76,7 @@
                                             JOIN produk p ON p.id_produk = d.id_produk WHERE
                                             id_transaksi = '".$data_transaksi['id_transaksi']."'");
                             while($data_detail = mysqli_fetch_array($query_detail)){
-                                echo "<label>Rp".number_format($data_detail['subtotal']/$data_detail['qty'])."<label>";
+                                echo "<li>Rp".number_format($data_detail['subtotal'])."</li>";
                             }
                             ?>
                         </td>
@@ -89,11 +89,11 @@
                             echo "<label>Rp.".number_format($data_bayar['total'])."</label>";
                             ?>
                         </td>
+                        <td>
                         <?php
                             include "koneksi.php";
                             echo "<td><label class='alert alert-success'>Telah Berhasil<br></label></td>";
                             ?>
-                            
                         </td>                        
 
                     </tr>
